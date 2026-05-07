@@ -1089,7 +1089,7 @@ strong{ font-weight: 700; }
 }
 .callout__title{ 
   margin: 0;
-  font-size: 64px;
+  font-size: 3rem;
   letter-spacing: -0.02em; 
   line-height: normal;
 }
