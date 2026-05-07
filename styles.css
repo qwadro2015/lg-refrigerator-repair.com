@@ -89,15 +89,20 @@ strong{ font-weight: 700; }
 .brand{
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  justify-content: left;
 }
-.brand__mark{
-  width: 28px; height: 28px;
-  border-radius: 999px;
-  background: radial-gradient(120% 120% at 10% 10%, var(--accent-2), var(--accent));
-  box-shadow: 0 10px 20px rgba(165,0,52,0.25);
+.brand__logo{
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 240px;
+}
+.brand__logo--footer{
+  max-height: 38px;
+}
+.brand__mark,
+.brand__text{
+  display: none;
 }
 .brand__text{ font-size: 15px; }
 .brand--footer .brand__text{ color: rgba(255,255,255,0.9); }
