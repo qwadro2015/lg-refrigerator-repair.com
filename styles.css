@@ -1475,6 +1475,8 @@ strong{ font-weight: 700; }
   margin: 14px 0 0;
   color: rgba(255,255,255,0.68);
   max-width: 44ch;
+  font-size: 16px;
+  line-height: 1.6;
 }
 .lg-footer__cta{
   margin-top: 24px;
@@ -1484,8 +1486,9 @@ strong{ font-weight: 700; }
 }
 .lg-footer__cols{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(3, max-content);
+  justify-content: space-between;
+  gap: 80px;
 }
 .lg-footer__title{
   margin: 0 0 10px;
@@ -1510,24 +1513,71 @@ strong{ font-weight: 700; }
 .lg-footer__meta > div{
   padding: 4px 0;
 }
-.lg-footer__col:first-child .lg-footer__meta > div:last-child,
-.lg-footer__col:last-child .lg-footer__meta > div:last-child {
-  border-bottom: 1px solid rgba(255,255,255,0.12);
-}
 .lg-footer__meta strong{ color: rgba(255,255,255,0.92); }
 .lg-footer__sep{
+  position: relative;
+  width: 100%;
+  margin: 18px 0 0;
+}
+.lg-footer__sep::before,
+.lg-footer__sep::after{
+  content: "";
+  display: block;
+  width: 100%;
   height: 1px;
   background: rgba(255,255,255,0.18);
-  margin: 72px 0 0;
-  width: 100%;
+}
+.lg-footer__sep::after{
+  margin-top: 4px;
+  opacity: 0.75;
 }
 .lg-footer__bottom{
   margin-top: 0;
 }
 .lg-footer__bottom-inner{
-  padding: 18px 0 0;
+  padding: 18px 0 18px;
   color: rgba(255,255,255,0.62);
   font-size: 12px;
+}
+.lg-footer__social{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.lg-footer__social-link{
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+
+  background: rgba(255, 255, 255, 0);
+  color: #e50010;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.lg-footer__social-link:hover{
+  transform: translateY(-3px);
+
+  border-color: #e50010;
+  background: rgba(229,0,16,0.12);
+
+  box-shadow:
+    0 0 18px rgba(229,0,16,0.35),
+    inset 0 0 12px rgba(229,0,16,0.12);
+}
+
+.lg-footer__social-link i{
+  font-size: 16px;
 }
 
 /* Footer button effects */
@@ -1629,9 +1679,9 @@ strong{ font-weight: 700; }
   .lg-footer__inner {
     padding: 44px 25px 28px;
     grid-template-columns: 1fr;
-}
-.lg-footer__cols {
-    grid-template-columns: 1fr 1fr;
-}
+  }
+  .lg-footer__cols {
+    grid-template-columns: 1fr;
+  }
 
 }
