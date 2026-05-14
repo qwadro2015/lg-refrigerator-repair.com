@@ -395,7 +395,7 @@ strong{ font-weight: 700; }
   color: white;
   pointer-events: none;
   /* background: linear-gradient(135deg, #0a0a14 0%, #1d0d2e 100%); */
-  background-image: url(images/hero-bg.png);
+  background-image: url(images/hero-bg.webp);
 }
 .hero__slide.is-active{
   opacity: 1;
