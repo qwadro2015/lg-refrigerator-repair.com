@@ -1008,7 +1008,10 @@ strong{ font-weight: 700; }
 /* Sections */
 .section{ padding: 80px 0; }
 .section--muted{ background: var(--surface-2); }
-.section--white { background-color: var(--bg-white); }
+.section--white { 
+  /* background-color: var(--bg-white); */
+  padding: 0;
+ }
 /* .section__head{ margin-bottom: 34px; } */
 .section__content{ display: grid; gap: 32px; }
 .section__title{
