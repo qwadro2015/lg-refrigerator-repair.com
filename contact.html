@@ -22,6 +22,8 @@
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <script defer src="./script.js"></script>
+    <!-- Cloudflare Turnstile API -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -39,7 +41,7 @@
           </button>
 
           <div class="nav__panel" id="navPanel" data-nav-panel>
-            <a class="nav__link" href="#main">Home</a>
+            <a class="nav__link" href="/">Home</a>
             <a class="nav__link" href="/#services">Services</a>
             <a class="nav__link" href="/#contact">Locations</a>
             <a class="nav__link" href="/#process">About us</a>
@@ -91,7 +93,7 @@
 
           <div class="contacts-panel">
             <div class="contact-grid contact-grid--page">
-             <form id="contactForm" class="form surface" data-contact-form>
+                <form id="contactForm" class="form surface" data-contact-form>
                   <div class="form__row">
                     <!-- <label class="label" for="name">Name</label> -->
                     <input class="input" id="name" name="name" autocomplete="name" placeholder="Name" required />
@@ -128,12 +130,13 @@
                   <div class="form__actions">
                     <button class="btn btn--primary" type="submit">Request quote</button>
                     <a class="btn btn--ghost" href="tel:+18584020777">Call (858) 402-0777</a>
-                  </div>          
+                  </div>
+                
                   <p class="form__note" data-form-note hidden role="status"></p>
                 </form>
 
               <div class="contact-map">
-                <div class="contact-map__embed">
+                <div class="contact-map__embed"> 
                   <iframe
                     title="LG Refrigerator Repair location on Google Maps"
                     src="https://maps.google.com/maps?q=10620+Treena+St+Ste+D15+San+Diego+CA+92131&hl=en&z=15&output=embed"
@@ -275,11 +278,8 @@
         <div class="container lg-footer__bottom-inner">© 2001–2026 LG Refrigerator Repair Center. All Rights Reserved.</div>
       </div>
     </footer>
-<!-- Cloudflare Turnstile API -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-
-  <!-- Form Handling Script -->
-  <script>
+<!--  Form Handling Script-->
+<script>
     // Задовольняє атрибут data-callback="onSuccess" у Turnstile
     function onSuccess(token) {
       console.log("Turnstile captcha solved successfully.");
@@ -330,6 +330,6 @@
         });
       });
     }
-  </script>
+</script>
 </body>
 </html>

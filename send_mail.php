@@ -52,9 +52,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // 3. Email Settings
     $to = "sd@lg-refrigerator-repair.com"; 
+    // $to = "lynnyk.work@gmail.com"; 
     $subject = "LG Repair Service New Quote Request";
     
-    // Email Body Content
+ // Email Body Content
     $body = "You have received a new message from the contact form:\n\n";
     $body .= "Name: $name\n";
     $body .= "Phone: $phone\n";
