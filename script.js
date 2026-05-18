@@ -65,23 +65,6 @@ function initAccordion() {
   });
 }
 
-function initContactForm() {
-  const form = qs("[data-contact-form]");
-  const note = qs("[data-form-note]");
-  if (!form || !note) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const payload = Object.fromEntries(formData.entries());
-
-    note.hidden = false;
-    note.textContent = `Thanks, ${String(payload.name || "there")} — we received your request and will contact you shortly.`;
-
-    form.reset();
-  });
-}
 
 function initCarousel() {
   const root = qs("[data-carousel]");
@@ -139,7 +122,6 @@ function initCarousel() {
 
 initNav();
 initCarousel();
-initContactForm();
 
 function initHeroSlider() {
   const root = qs("[data-hero-slider]");
@@ -177,27 +159,3 @@ function initHeroSlider() {
 }
 
 initHeroSlider();
-
-
-// Form submission handling
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Зупиняємо стандартну відправку форми
-
-    let formData = new FormData(this);
-
-    fetch("/send_email.php", { 
-    method: "POST",
-    body: formData
-})
-
-    .then(response => response.json()) // Очікуємо JSON-відповідь
-    .then(data => {
-        alert(data.message); // Виводимо повідомлення
-    })
-    .catch(error => {
-        console.error("Error:", error);
-        alert("An error occurred while sending the email.");
-    });
-
-    this.reset(); // Очищуємо форму після відправки
-});

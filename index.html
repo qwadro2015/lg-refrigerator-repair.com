@@ -25,7 +25,6 @@
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
     <script defer src="./script.js"></script>
-    <link rel="preconnect" href="https://challenges.cloudflare.com" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -43,12 +42,12 @@
           </button>
 
           <div class="nav__panel" id="navPanel" data-nav-panel>
-            <a class="nav__link" href="#main">Home</a>
+            <a class="nav__link" href="/">Home</a>
             <a class="nav__link" href="#services">Services</a>
             <a class="nav__link" href="#contact">Locations</a>
             <a class="nav__link" href="#process">About us</a>
             <a class="nav__link" href="#process">Blog</a>
-            <a class="nav__link" href="contact.html">Contact us</a>
+            <a class="nav__link" href="/contact">Contact us</a>
           </div>
         </nav>
 
@@ -265,42 +264,47 @@
           </header>
 
           <div class="contact-grid">
-            <form id="contactForm" class="form surface" data-contact-form>
-              <div class="form__row">
-                <!-- <label class="label" for="name">Name</label> -->
-                <input class="input" id="name" name="name" autocomplete="name" placeholder="Name" required />
-              </div>
-              <div class="form__row">
-                <!-- <label class="label" for="phone">Phone</label> -->
-                <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Phone" required />
-              </div>
-              <div class="form__row">
-                <!-- <label class="label" for="email">Email</label> -->
-                <input class="input" type="email" id="email" name="email" placeholder="Email" required />
-              </div>
-              <div class="form__row">
-                <!-- <label class="label" for="address">Address</label> -->
-                <input class="input" id="address" name="Address" placeholder="Address" required />
-              </div>
-              <div class="form__row">
-                <!-- <label class="label" for="message">Issue details</label> -->
-                <textarea class="textarea" id="message" name="message" rows="4" placeholder="Issue details" required></textarea>
-              </div>
- <!-- reCAPTCHA Begin --><div style="display: flex; justify-content: center; margin-bottom: 20px"><div
-  class="cf-turnstile"
-  data-sitekey="<0x4AAAAAADROZ_xyJoKh9dxS
->"
-  data-theme="light"
-  data-size="normal"
-  data-callback="onSuccess"
-></div></div><!-- reCAPTCHA End -->
-              <div class="form__actions">
-                <button class="btn btn--primary" type="submit">Request quote</button>
-                <a class="btn btn--ghost" href="tel:+18584020777">Call (858) 402-0777</a>
-              </div>
-
-              <p class="form__note" data-form-note hidden role="status"></p>
-            </form>
+                <form id="contactForm" class="form surface" data-contact-form>
+                  <div class="form__row">
+                    <!-- <label class="label" for="name">Name</label> -->
+                    <input class="input" id="name" name="name" autocomplete="name" placeholder="Name" required />
+                  </div>
+                  <div class="form__row">
+                    <!-- <label class="label" for="phone">Phone</label> -->
+                    <input class="input" type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Phone" required />
+                  </div>
+                  <div class="form__row">
+                    <!-- <label class="label" for="email">Email</label> -->
+                    <input class="input" type="email" id="email" name="email" placeholder="Email" required />
+                  </div>
+                  <div class="form__row">
+                    <!-- <label class="label" for="address">Address</label> -->
+                    <input class="input" id="address" name="Address" placeholder="Address" required />
+                  </div>
+                  <div class="form__row">
+                    <!-- <label class="label" for="message">Issue details</label> -->
+                    <textarea class="textarea" id="message" name="message" rows="4" placeholder="Issue details" required></textarea>
+                  </div>
+                
+                  <!-- Cloudflare Turnstile Begin -->
+                  <div style="display: flex; justify-content: center; margin-bottom: 20px">
+                    <div 
+                      class="cf-turnstile" 
+                      data-sitekey="0x4AAAAAADROZ_xyJoKh9dxS" 
+                      data-theme="light" 
+                      data-size="normal" 
+                      data-callback="onSuccess"
+                    ></div>
+                  </div>
+                  <!-- Cloudflare Turnstile End -->
+                
+                  <div class="form__actions">
+                    <button class="btn btn--primary" type="submit">Request quote</button>
+                    <a class="btn btn--ghost" href="tel:+18584020777">Call (858) 402-0777</a>
+                  </div>
+                
+                  <p class="form__note" data-form-note hidden role="status"></p>
+                </form>
 
             <aside class="surface">
               <h3 class="surface__title">Our location</h3>
@@ -391,10 +395,61 @@
         <div class="container lg-footer__bottom-inner">© 2001–2026 LG Refrigerator Repair Center. All Rights Reserved.</div>
       </div>
     </footer>
-<script
-  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-  async
-  defer
-></script>
-  </body>
+<!-- Cloudflare Turnstile API -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  <!-- Form Handling Script -->
+  <script>
+    // Задовольняє атрибут data-callback="onSuccess" у Turnstile
+    function onSuccess(token) {
+      console.log("Turnstile captcha solved successfully.");
+    }
+
+    // Обробка відправки форми
+    const contactForm = document.getElementById("contactForm");
+    
+    if (contactForm) {
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault(); // Зупиняємо стандартне перезавантаження сторінки
+
+        const submitButton = this.querySelector('button[type="submit"]');
+        
+        // Блокуємо кнопку, щоб уникнути повторних кліків та помилки капчі
+        if (submitButton) submitButton.disabled = true;
+
+        let formData = new FormData(this);
+
+        fetch("send_email.php", { 
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network error or file not found (Status: " + response.status + ")");
+            }
+            return response.json(); // Очікуємо JSON-відповідь від PHP
+        })
+        .then(data => {
+            alert(data.message); // Виводить повідомлення успіху або помилки з PHP
+            
+                if (data.status === "success") {
+                    this.reset();
+                }
+                
+                if (typeof turnstile !== 'undefined') {
+                    turnstile.reset();
+                }
+        })
+        .catch(error => {
+            console.error("Error details:", error);
+            alert("An error occurred while sending the email: " + error.message);
+        })
+        .finally(() => {
+            // Повертаємо кнопку в активний стан у будь-якому випадку
+            if (submitButton) submitButton.disabled = false;
+        });
+      });
+    }
+  </script>
+</body>
 </html>
