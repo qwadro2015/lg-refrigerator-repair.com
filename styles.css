@@ -1805,11 +1805,24 @@ strong{ font-weight: 700; }
 }
 .service-areas__text{
   margin: 0;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.6;
   font-weight: 450;
   color: #1f2937;
   text-align: left;
+}
+.service-areas__location{
+  cursor: default;
+  transition: color 0.15s ease;
+}
+.service-areas__location:not(:last-child)::after{
+  content: ", ";
+}
+.service-areas__location:hover{
+  color: #ff4a03;
+}
+.service-areas__location:hover::after{
+  color: #ff4a03;
 }
 
 @media (max-width: 992px){
