@@ -429,7 +429,8 @@ strong{ font-weight: 700; }
 .hero__slide-content h1,
 .hero__slide-content h2{
   margin: 0 0 24px;
-  font-size: clamp(2.8rem, 6vw, 4.5rem);\n  line-height: 1.1;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.1;
   letter-spacing: -0.04em;
   font-weight: 900;
   color: white;
@@ -607,7 +608,8 @@ strong{ font-weight: 700; }
   }
 }
 
-.full-bleed{\n  width: 100vw;
+.full-bleed{
+  width: 100vw;
   margin-left: calc(50% - 50vw);
 }
 .carousel--full{
@@ -2013,10 +2015,10 @@ main:has(.services-map) + .lg-footer{
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .services-content__image{
-    /* min-height: 0;
-    max-height: 360px; */
-  }
+  /*.services-content__image{
+     min-height: 0;
+    max-height: 360px; 
+  }*/
 }
 
 @media (max-width: 720px){
