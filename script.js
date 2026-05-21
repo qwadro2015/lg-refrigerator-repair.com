@@ -121,6 +121,7 @@ function initCarousel() {
 }
 
 initNav();
+initAccordion();
 initCarousel();
 
 function initHeroSlider() {
