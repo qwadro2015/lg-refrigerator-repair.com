@@ -1995,7 +1995,7 @@ strong{ font-weight: 700; }
   }
 }
 /* Services page */
-.services-intro,{
+.services-intro{
   background: var(--bg);
 }
 .services-intro.section{
