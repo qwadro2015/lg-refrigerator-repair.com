@@ -1796,35 +1796,139 @@ strong{ font-weight: 700; }
   color: #c4002e;
 }
 
-.contact-page__areas{
+/*Locations */
+/* Головна обгортка секції */
+.service-areas-section {
   padding: 56px 0 80px;
+  background: var(--bg);
 }
-.service-area-box{
-  background: #E6E1D6;
-  border-radius: 12px;
-  padding: 28px 32px;
-  box-shadow: 0 4px 18px rgba(17, 24, 39, 0.06);
+
+/* Бежева панель (контейнер) */
+.service-areas-panel {
+  background: #f3ede6;
+  border-radius: var(--radius);
+  padding: 48px 24px;
+  border: 1px solid rgba(17, 24, 39, 0.06);
+  box-shadow: 0 10px 40px rgba(17, 24, 39, 0.05);
 }
-.service-areas__text{
+
+/* Шапка панелі */
+.service-areas-panel__head {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.service-areas-panel__title {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.6;
-  font-weight: 450;
-  color: #1f2937;
-  text-align: left;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #111827;
 }
-.service-areas__location{
-  cursor: default;
-  transition: color 0.15s ease;
+
+/* Рядок підзаголовка з червоними лініями */
+.service-areas-panel__county {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 18px 0 14px;
 }
-.service-areas__location:not(:last-child)::after{
-  content: ", ";
+
+.service-areas-panel__county-line {
+  width: 60px;
+  height: 1px;
+  background: var(--accent); /* Червона лінія в шапці */
+  flex-shrink: 0;
 }
-.service-areas__location:hover{
-  color: #ff4a03;
+
+.service-areas-panel__county-text {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent); /* Червоний текст */
 }
-.service-areas__location:hover::after{
-  color: #ff4a03;
+
+.service-areas-panel__intro {
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* Флекс-контейнер для 5 колонок */
+.service-areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0; 
+  justify-content: center;
+}
+
+/* Картка регіону (колонка) */
+.service-area-card {
+  flex: 1 1 150px; /* Дозволяє карткам стискатися, щоб влізати в ряд */
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 10px 16px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Тонкі вертикальні червоні лінії між колонками (як на фото) */
+.service-area-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  width: 2px;
+  height: 90%;
+  background: var(--accent); /* Червоний колір розділювача */
+}
+
+/* Обгортка для іконки (повністю прозора) */
+.service-areas-panel__icon {
+  width: auto;
+  height: auto;
+  background: transparent !important;
+  border-radius: 0;
+  display: inline-flex;
+  margin-bottom: 16px;
+}
+
+/* SVG контур іконки (червоний) */
+.service-areas-panel__icon svg {
+  width: 54px;          
+  height: 54px;
+  stroke: var(--accent); /* Червоний контур іконок */
+  stroke-width: 1.2px;  
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none !important; /* Без внутрішньої заливки */
+}
+
+/* Назва регіону */
+.service-areas-panel__region {
+  margin: 0 0 12px;
+  font-size: 1.05rem; 
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111827;
+}
+
+/* Список міст */
+.service-areas-panel__list {
+  margin: 0;
+  line-height: 1.5;
+  color: #4b5563;
+  font-size: 0.85rem; 
+}
+.service-areas-panel__icon i {
+  color: #a50034 !important; /* ЖОРСТКО ЧЕРВОНИЙ КОЛІР ДЛЯ ІКОНКИ */
+  font-size: 54px;         /* Оптимальний розмір, як на фото */
+  line-height: 1;
+  display: block;
 }
 
 @media (max-width: 992px){
@@ -1843,6 +1947,27 @@ strong{ font-weight: 700; }
   .contact-map__embed{
     min-height: 240px;
   }
+  .service-areas {
+    gap: 0; /* Тримаємо колонки притиснутими для чітких меж */
+  }
+
+  .service-area-card {
+    /* Робимо рівно 50% ширини для кожної картки */
+    flex: 0 0 50%; 
+    max-width: 50%;
+    padding: 30px 24px;
+    text-align: left; /* Залишаємо вирівнювання ліворуч, як на десктопі */
+  }
+  
+  /* Ховаємо старі вертикальні десктопні лінії */
+  .service-area-card:not(:last-child)::after {
+    display: none;
+  }
+
+  /* Додаємо червону рамку знизу для розділення рядків */
+  .service-area-card {
+    border-bottom: 1px solid rgba(165, 0, 52, 0.3) !important; /* Червона лінія з прозорістю */
+  }
 }
 
 @media (max-width: 720px){
@@ -1852,17 +1977,25 @@ strong{ font-weight: 700; }
 }
 
 @media (max-width: 480px){
-  .service-area-box{
-    padding: 22px 20px;
+.service-area-card {
+    /* Кожна картка на всю ширину */
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center; /* Центруємо вміст для кращого вигляду на смартфонах */
+    
+    /* Додаємо розподіл між кожним блоком вниз */
+    border-bottom: 1px solid rgba(165, 0, 52, 0.3) !important;
   }
-  .service-areas__text{
-    font-size: 13px;
+
+  /* Для іконки Font Awesome включаємо центрування на мобільних */
+  .service-areas-panel__icon {
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
 }
-
 /* Services page */
-.services-intro,
-.services-areas{
+.services-intro,{
   background: var(--bg);
 }
 .services-intro.section{
@@ -1904,6 +2037,10 @@ strong{ font-weight: 700; }
 .services-content__text + .services-content__text{
   margin-top: 14px;
 }
+.services-intro__after,
+.services-content__after{
+  margin-top: 32px;
+}
 .services-intro__image{
   width: 100%;
   max-width: 400px;
@@ -1927,10 +2064,6 @@ strong{ font-weight: 700; }
   /* object-fit: cover; */
   box-shadow: var(--shadow);
   display: block;
-}
-
-.services-areas{
-  padding: 56px 0 80px;
 }
 
 .services-faq{
@@ -2007,9 +2140,7 @@ main:has(.services-map) + .lg-footer{
     gap: 24px;
   }
   .services-intro__image{
-    /* min-height: 0;
-    max-height: 360px; */
-    order: -1;
+    justify-self: center;
   }
   .services-content__split{
     grid-template-columns: 1fr;
