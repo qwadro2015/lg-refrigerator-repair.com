@@ -1924,6 +1924,9 @@ strong{ font-weight: 700; }
   color: #4b5563;
   font-size: 0.85rem; 
 }
+.service-areas-panel__list span:hover {
+  color: var(--accent);
+}
 .service-areas-panel__icon i {
   color: #a50034 !important; /* ЖОРСТКО ЧЕРВОНИЙ КОЛІР ДЛЯ ІКОНКИ */
   font-size: 54px;         /* Оптимальний розмір, як на фото */
