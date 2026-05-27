@@ -2010,36 +2010,36 @@ strong{ font-weight: 700; }
     width: 100%;
   }
 }
-/* Services page */ /* About us page */
-.services-intro, .about-intro{
+/* Services page */ /* About us page */ /* Locations page */
+.services-intro, .about-intro, .locations-intro{
   background: var(--bg);
 }
-.services-intro.section, .about-intro.section{
+.services-intro.section, .about-intro.section, .locations-intro.section{
   padding-bottom: 72px;
 }
-.services-intro.section header, .about-intro.section header{
+.services-intro.section header, .about-intro.section header, .locations-intro.section header{
   margin-bottom: 60px;
 }
-.services-intro__head,.about-intro__head{
+.services-intro__head,.about-intro__head, .locations-intro__head{
   margin-bottom: 0;
 }
-.services-intro__title,.about-intro__title{
+.services-intro__title,.about-intro__title, .locations-intro__title{
   margin: 0;
   font-size: 3rem;
   letter-spacing: -0.03em;
   line-height: 1.15;
 }
-.services-intro__layout, .about-intro__layout{
+.services-intro__layout, .about-intro__layout, .locations-intro__layout{
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
   gap: 46px;
   align-items: start;
   margin-top: 24px;
 }
-.services-intro__copy, .about-intro__copy{
+.services-intro__copy, .about-intro__copy, .locations-intro__copy{
   min-width: 0;
 }
-.services-intro__text, .about-intro__text, .services-content__text{
+.services-intro__text, .about-intro__text, .locations-intro__text, .services-content__text{
   margin: 0;
   max-width: none;
   font-size: 17px;
@@ -2050,12 +2050,14 @@ strong{ font-weight: 700; }
 }
 .services-intro__text + .services-intro__text,
 .services-content__text + .services-content__text, 
-.about-intro__text + .about-intro__text{
+.about-intro__text + .about-intro__text,
+.locations-intro__text + .locations-intro__text{
   margin-top: 14px;
 }
 .services-intro__after, 
 .services-content__after,
-.about-intro__after{
+.about-intro__after,
+.locations-intro__after{
   margin-top: 32px;
 }
 .services-intro__image{
@@ -2067,7 +2069,7 @@ strong{ font-weight: 700; }
   box-shadow: var(--shadow);
   display: block;
 }
-.about-intro__image{
+.about-intro__image, .locations-intro__image{
   width: 100%;
   max-width: 600px;
   height: auto;
@@ -2075,6 +2077,9 @@ strong{ font-weight: 700; }
   /* object-fit: cover; */
   box-shadow: var(--shadow);
   display: block;
+}
+.locations-intro__image{
+  height: 400px;
 }
 .services-content__split{
   display: grid;
@@ -2092,27 +2097,27 @@ strong{ font-weight: 700; }
   display: block;
 }
 
-.services-faq, .about-faq{
+.services-faq, .about-faq, .locations-faq{
   padding: 48px 0 56px;
   background: var(--bg);
 }
-.services-faq__title, .about-faq__title{
+.services-faq__title, .about-faq__title, .locations-faq__title{
   margin: 0 0 48px;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   letter-spacing: -0.03em;
   line-height: 1.2;
 }
-.services-faq__list .accordion__item, .about-faq__list .accordion__item{
+.services-faq__list .accordion__item, .about-faq__list .accordion__item, .locations-faq__list .accordion__item{
   background: #E6E1D6;
   border-color: rgba(17, 24, 39, 0.06);
 }
-.services-faq__list .accordion__summary, .about-faq__list .accordion__summary{
+.services-faq__list .accordion__summary, .about-faq__list .accordion__summary, .locations-faq__list .accordion__summary{
   display: flex;
   align-items: flex-start;
   gap: 10px;
   padding: 16px 0;
 }
-.services-faq__list .accordion__summary::before, .about-faq__list .accordion__summary::before{
+.services-faq__list .accordion__summary::before, .about-faq__list .accordion__summary::before, .locations-faq__list .accordion__summary::before{
   content: "+";
   font-weight: 800;
   font-size: 1.1rem;
@@ -2120,10 +2125,10 @@ strong{ font-weight: 700; }
   flex-shrink: 0;
   color: var(--text);
 }
-.services-faq__list details[open] .accordion__summary::before, .about-faq__list details[open] .accordion__summary::before{
+.services-faq__list details[open] .accordion__summary::before, .about-faq__list details[open] .accordion__summary::before, .locations-faq__list details[open] .accordion__summary::before{
   content: "−";
 }
-.services-faq__list .accordion__question, .about-faq__list .accordion__question{
+.services-faq__list .accordion__question, .about-faq__list .accordion__question, .locations-faq__list .accordion__question{
   margin: 0;
   font-size: 1rem;
   font-weight: 800;
@@ -2131,7 +2136,7 @@ strong{ font-weight: 700; }
   line-height: 1.4;
   color: var(--text);
 }
-.services-faq__list .accordion__content p, .about-faq__list .accordion__content p{
+.services-faq__list .accordion__content p, .about-faq__list .accordion__content p, .locations-faq__list .accordion__content p{
   margin: 0;
   font-size: 15px;
   font-weight: 400;
@@ -2139,20 +2144,20 @@ strong{ font-weight: 700; }
   color: rgba(17, 24, 39, 0.72);
 }
 
-.services-map, .about-map{
+.services-map, .about-map, .locations-map{
   margin-top: 72px;
   padding: 0;
 }
 
-main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer{
+main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer, main:has(.locations-map) + .lg-footer{
   margin-top: 12px;
 }
-.services-map__embed, .about-map__embed{
+.services-map__embed, .about-map__embed, .locations-map__embed{
   position: relative;
   width: 100%;
   min-height: 380px;
 }
-.services-map__embed iframe, .about-map__embed iframe{
+.services-map__embed iframe, .about-map__embed iframe, .locations-map__embed iframe{
   position: absolute;
   inset: 0;
   width: 100%;
@@ -2161,11 +2166,11 @@ main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer{
 }
 
 @media (max-width: 992px){
-  .services-intro__layout, .about-intro__layout{
+  .services-intro__layout, .about-intro__layout, .locations-intro__layout{
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .services-intro__image, .about-intro__image{
+  .services-intro__image, .about-intro__image, .locations-intro__image{
     justify-self: center;
   }
   .services-content__split{
@@ -2179,7 +2184,7 @@ main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer{
 }
 
 @media (max-width: 720px){
-  .services-map__embed, .about-map__embed{
+  .services-map__embed, .about-map__embed, .locations-map__embed{
     min-height: 300px;
   }
 }
