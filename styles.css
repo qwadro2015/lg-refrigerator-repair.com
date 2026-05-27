@@ -60,7 +60,13 @@ strong{ font-weight: 700; }
 .skip-link:focus{ top: 12px; }
 
 .container{
-  max-width: var(--container);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+
+.container__service_area {
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 18px;
 }
@@ -1703,14 +1709,10 @@ strong{ font-weight: 700; }
 .contact-intro__copy .section__subtitle + .section__subtitle{
   margin-top: 14px;
 }
-.contact-intro__copy .section__subtitle:last-child{
-  font-weight: 500;
-}
 .contact-intro__image{
   width: 100%;
+  width: 470px;
   height: auto;
-  min-height: 280px;
-  max-height: 310px;
   object-fit: cover;
   box-shadow: var(--shadow);
   display: block;
@@ -1874,6 +1876,9 @@ strong{ font-weight: 700; }
   padding: 10px 16px;
   position: relative;
   box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 /* Тонкі вертикальні червоні лінії між колонками (як на фото) */
@@ -1884,19 +1889,26 @@ strong{ font-weight: 700; }
   top: 10%;
   width: 2px;
   height: 90%;
-  background: var(--accent); /* Червоний колір розділювача */
+  background: #C49239; /* Колір розділювача */
 }
 
 /* Обгортка для іконки (повністю прозора) */
 .service-areas-panel__icon {
-  width: auto;
   height: auto;
   background: transparent !important;
   border-radius: 0;
   display: inline-flex;
   margin-bottom: 16px;
+  flex-shrink: 0;
+  width: 54px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
 }
-
+.service-area-card__content {
+  flex: 1;
+  min-width: 0;
+}
 /* SVG контур іконки (червоний) */
 .service-areas-panel__icon svg {
   width: 54px;          
@@ -1922,7 +1934,7 @@ strong{ font-weight: 700; }
   margin: 0;
   line-height: 1.5;
   color: #4b5563;
-  font-size: 0.85rem; 
+  font-size: 0.7rem; 
 }
 .service-areas-panel__list span:hover {
   color: var(--accent);
@@ -1985,6 +1997,7 @@ strong{ font-weight: 700; }
     flex: 0 0 100%;
     max-width: 100%;
     text-align: center; /* Центруємо вміст для кращого вигляду на смартфонах */
+    flex-direction: column;
     
     /* Додаємо розподіл між кожним блоком вниз */
     border-bottom: 1px solid rgba(165, 0, 52, 0.3) !important;
@@ -1997,37 +2010,36 @@ strong{ font-weight: 700; }
     width: 100%;
   }
 }
-/* Services page */
-.services-intro{
+/* Services page */ /* About us page */
+.services-intro, .about-intro{
   background: var(--bg);
 }
-.services-intro.section{
+.services-intro.section, .about-intro.section{
   padding-bottom: 72px;
 }
-.services-intro.section header{
+.services-intro.section header, .about-intro.section header{
   margin-bottom: 60px;
 }
-.services-intro__head{
+.services-intro__head,.about-intro__head{
   margin-bottom: 0;
 }
-.services-intro__title{
+.services-intro__title,.about-intro__title{
   margin: 0;
   font-size: 3rem;
   letter-spacing: -0.03em;
   line-height: 1.15;
 }
-.services-intro__layout{
+.services-intro__layout, .about-intro__layout{
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(280px, 430px);
   gap: 46px;
   align-items: start;
   margin-top: 24px;
 }
-.services-intro__copy{
+.services-intro__copy, .about-intro__copy{
   min-width: 0;
 }
-.services-intro__text,
-.services-content__text{
+.services-intro__text, .about-intro__text, .services-content__text{
   margin: 0;
   max-width: none;
   font-size: 17px;
@@ -2037,16 +2049,27 @@ strong{ font-weight: 700; }
   text-align: justify;
 }
 .services-intro__text + .services-intro__text,
-.services-content__text + .services-content__text{
+.services-content__text + .services-content__text, 
+.about-intro__text + .about-intro__text{
   margin-top: 14px;
 }
-.services-intro__after,
-.services-content__after{
+.services-intro__after, 
+.services-content__after,
+.about-intro__after{
   margin-top: 32px;
 }
 .services-intro__image{
   width: 100%;
   max-width: 400px;
+  height: auto;
+  /* max-height: 570px; */
+  /* object-fit: cover; */
+  box-shadow: var(--shadow);
+  display: block;
+}
+.about-intro__image{
+  width: 100%;
+  max-width: 600px;
   height: auto;
   /* max-height: 570px; */
   /* object-fit: cover; */
@@ -2069,27 +2092,27 @@ strong{ font-weight: 700; }
   display: block;
 }
 
-.services-faq{
+.services-faq, .about-faq{
   padding: 48px 0 56px;
   background: var(--bg);
 }
-.services-faq__title{
+.services-faq__title, .about-faq__title{
   margin: 0 0 48px;
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   letter-spacing: -0.03em;
   line-height: 1.2;
 }
-.services-faq__list .accordion__item{
+.services-faq__list .accordion__item, .about-faq__list .accordion__item{
   background: #E6E1D6;
   border-color: rgba(17, 24, 39, 0.06);
 }
-.services-faq__list .accordion__summary{
+.services-faq__list .accordion__summary, .about-faq__list .accordion__summary{
   display: flex;
   align-items: flex-start;
   gap: 10px;
   padding: 16px 0;
 }
-.services-faq__list .accordion__summary::before{
+.services-faq__list .accordion__summary::before, .about-faq__list .accordion__summary::before{
   content: "+";
   font-weight: 800;
   font-size: 1.1rem;
@@ -2097,10 +2120,10 @@ strong{ font-weight: 700; }
   flex-shrink: 0;
   color: var(--text);
 }
-.services-faq__list details[open] .accordion__summary::before{
+.services-faq__list details[open] .accordion__summary::before, .about-faq__list details[open] .accordion__summary::before{
   content: "−";
 }
-.services-faq__list .accordion__question{
+.services-faq__list .accordion__question, .about-faq__list .accordion__question{
   margin: 0;
   font-size: 1rem;
   font-weight: 800;
@@ -2108,7 +2131,7 @@ strong{ font-weight: 700; }
   line-height: 1.4;
   color: var(--text);
 }
-.services-faq__list .accordion__content p{
+.services-faq__list .accordion__content p, .about-faq__list .accordion__content p{
   margin: 0;
   font-size: 15px;
   font-weight: 400;
@@ -2116,20 +2139,20 @@ strong{ font-weight: 700; }
   color: rgba(17, 24, 39, 0.72);
 }
 
-.services-map{
+.services-map, .about-map{
   margin-top: 72px;
   padding: 0;
 }
 
-main:has(.services-map) + .lg-footer{
+main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer{
   margin-top: 12px;
 }
-.services-map__embed{
+.services-map__embed, .about-map__embed{
   position: relative;
   width: 100%;
   min-height: 380px;
 }
-.services-map__embed iframe{
+.services-map__embed iframe, .about-map__embed iframe{
   position: absolute;
   inset: 0;
   width: 100%;
@@ -2138,11 +2161,11 @@ main:has(.services-map) + .lg-footer{
 }
 
 @media (max-width: 992px){
-  .services-intro__layout{
+  .services-intro__layout, .about-intro__layout{
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  .services-intro__image{
+  .services-intro__image, .about-intro__image{
     justify-self: center;
   }
   .services-content__split{
@@ -2156,7 +2179,7 @@ main:has(.services-map) + .lg-footer{
 }
 
 @media (max-width: 720px){
-  .services-map__embed{
+  .services-map__embed, .about-map__embed{
     min-height: 300px;
   }
 }
