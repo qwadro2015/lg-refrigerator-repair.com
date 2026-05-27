@@ -1481,7 +1481,7 @@ strong{ font-weight: 700; }
 
 /* Footer */
 .site-footer{
-  background: #0b0f14;
+  background: #333333;
   color: rgba(255,255,255,0.82);
   padding: 40px 0;
   margin-top: 30px;
@@ -1511,7 +1511,7 @@ strong{ font-weight: 700; }
 /* LG-like footer */
 .lg-footer{
   margin-top: 44px;
-  background: #0b0f14;
+  background: #333333;
   color: rgba(255,255,255,0.86);
 }
 .lg-footer__inner{
@@ -1605,7 +1605,7 @@ strong{ font-weight: 700; }
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.18);
 
-  background: rgba(255, 255, 255, 0);
+  background: #333333;
   color: #e50010;
 
   transition:
