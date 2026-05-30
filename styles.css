@@ -2341,7 +2341,7 @@ main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer, main:ha
 
 .article-intro__layout {
   display: grid;
-  grid-template-columns: minmax(280px, 600px) minmax(0, 1fr);
+  grid-template-columns: minmax(280px, 500px) minmax(0, 1fr);
   gap: 46px;
   align-items: start;
   margin-top: 24px;
@@ -2370,9 +2370,9 @@ main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer, main:ha
 }
 
 .article-intro__image {
-  width: 100%;
+  /* width: 100%;
   max-width: 600px;
-  height: 820px;
+  height: 820px; */
   box-shadow: var(--shadow);
   display: block;
 }
