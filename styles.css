@@ -2359,6 +2359,12 @@ main:has(.services-map) + .lg-footer, main:has(.about-map) + .lg-footer, main:ha
   display: block;
 }
 
+.article-date time {
+  font-size: 14px;
+  color: #999999;         /* Сірий колір для дати */
+  font-weight: 400;
+  display: block;
+}
 @media (max-width: 992px) {
   .article-intro__layout {
     grid-template-columns: 1fr;
